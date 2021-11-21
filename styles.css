@@ -1,0 +1,602 @@
+:root{
+    /* Primary */
+    --bright-red: hsl(12, 88%, 59%);
+    --dark-blue: hsl(228, 39%, 23%);
+
+    /* Neutral */
+    --dark-grayish-blue: hsl(227, 12%, 61%);
+    --very-dark-blue: hsl(233, 12%, 13%);
+    --Very-Pale-Red: hsl(13, 100%, 96%);
+    --Vary-Light-Gray: hsl(0, 0%, 98%);
+    --white: hsl(0, 0%, 100%);
+}
+
+*, *::before, *::after{
+    box-sizing: border-box;
+    font-family: 'Be Vietnam', sans-serif;
+    list-style: none;
+    text-decoration: none;
+
+    padding: 0;
+    border: none;
+    margin: 0;
+}
+
+
+/* __________NAVIGATION__________ */
+nav{
+    display: flex;
+    width: 100%;
+    padding: 1.4em 10%;
+
+    position: fixed;
+    z-index: 2;
+}
+
+nav > svg{
+    margin: auto 0 0.2em;
+}
+
+nav > ul{
+    display: flex;
+    gap: 1em;
+    margin: auto;
+}
+
+nav a{
+    color: var(--dark-blue);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+nav a:hover{
+    color: var(--dark-grayish-blue);
+}
+
+nav > button{
+    background: var(--bright-red);
+    color: var(--Vary-Light-Gray);
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 2em;
+    padding: 0.8em 1.8em;
+    margin: auto 0;
+}
+
+/* mobile menu */
+.menu-bg{
+    background: linear-gradient(hsla(0, 0%, 0%, 0) 3em, hsla(0, 0%, 0%, 0.3));
+    display: none;
+    width: 120%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.menu-box{
+    display: none;
+    margin-left: auto;
+    z-index: 2;
+}
+
+.close, #menu-box{
+    display: none;
+}
+
+#menu-box:checked ~ .menu-box .open{
+    display: none;
+}
+#menu-box:checked ~ .menu-box .close{
+    display: inline-block;
+}
+#menu-box:checked ~ ul{
+    display: flex;
+}
+#menu-box:checked ~ .menu-bg{
+    display: inline;
+}
+
+nav > button:hover{
+    background: hsl(12, 88%, 66%);
+}
+
+/* scrolling */
+.scrolling-active{
+    background: var(--dark-blue);
+    padding: 0.8em 10% 0.2em;
+}
+
+.scrolling-active .logo-letters{
+    fill: var(--white);
+}
+
+.scrolling-active a{
+    color: var(--Vary-Light-Gray);
+}
+
+.scrolling-active .menu-box path{
+    fill: white;
+}
+
+
+
+/* __________MAIN__________ */
+main{
+    background: url(images/bg-tablet-pattern.svg) no-repeat top -12em right -2em,
+                url(images/bg-tablet-pattern.svg) no-repeat bottom 18em left -34em;
+}
+
+/* ______INTRODUCTION______ */
+.intro{
+    padding: 12em 10% 6em;
+    position: relative;
+}
+
+.intro::before{
+    content: "";
+    background: url(images/illustration-intro.svg) no-repeat top 8em left;
+    width: 55%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.intro > h1{
+    color: var(--dark-blue);
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1.2em;
+    width: 9em;
+}
+
+.intro > p{
+    color: var(--dark-grayish-blue);
+    font-size: 18px;
+    width: 22em;
+    margin: 1.2em 0;
+}
+
+.intro > button{
+    background: var(--bright-red);
+    color: var(--Vary-Light-Gray);
+    font-weight: 500;
+    cursor: pointer;
+    padding: 1em 2.4em;
+    border-radius: 2em;
+}
+
+.intro > button:hover{
+    background: hsl(12, 88%, 66%);
+}
+
+/* ______What's different______ */
+.wts-different{
+    display: flex;
+    gap: 15%;
+    padding: 12em 10% 4em;
+}
+
+.wts-different > header{
+    width: 43%;
+}
+.wts-different h2{
+    color: var(--dark-blue);
+    line-height: 1em;
+    font-size: 34px;
+    margin-bottom: 0.6em;
+}
+
+.wts-different p{
+    color: var(--dark-grayish-blue);
+    width: 90%;
+}
+
+.points{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.points > div{
+    display: grid;
+    grid-template-columns: 0.2fr 6fr;
+    gap: 1.6em 1.4em;
+}
+
+.points span{
+    background: var(--bright-red);
+    color: var(--Vary-Light-Gray);
+    grid-row: span 2;
+    height: 2.5em;
+    padding: 0.4em 1.4em 0;
+    border-radius: 2em;
+    margin-bottom: auto;
+}
+
+.points h3{
+    color: var(--dark-blue);
+}
+
+.points p{
+    width: 27em;
+}
+
+/* ______TESTIMONIALS______ */
+.testimonials{
+    text-align: center;
+    padding: 4em 0 8em;
+    position: relative;
+}
+
+.testimonials > h2{
+    color: var(--dark-blue);
+    font-size: 34px;
+    margin-bottom: 1em;
+}
+
+.testimonies{
+    display: flex;
+    gap: 2%;
+    width: 90%;
+    
+    overflow-y: scroll;
+    scrollbar-width: none;
+    
+    padding-top: 3em;
+    border-radius: 1em;
+    margin: 0 5% 2em;
+}
+
+.testimonies:hover .scroll{
+    display: flex;
+}
+.scroll{
+    display: none;
+    background: hsla(0, 0%, 100%, 0.7);
+    width: 4%;
+    height: 14em;
+    margin-top: 0.5em;
+    border-radius: 1em;
+    position: absolute;
+    z-index: 1;
+}
+
+.scroll:hover{
+    border: 2px var(--Very-Pale-Red) solid;
+}
+.scroll img{
+    width: 60%;
+    margin: auto;
+}
+.left-scroll{
+    left: 5.4%;
+}
+.right-scroll{
+    right: 5.4%;
+}
+
+.testimony{
+    background: var(--Vary-Light-Gray);
+    width: 32%;
+    min-height: 15em;
+    padding: 4em 1em 0;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.testimony > img{
+    position: absolute;
+    width: 20%;
+    top: -2em;
+    transform: translate(-50%);
+}
+
+.testimony > h3{
+    color: var(--dark-blue);
+}
+
+.testimony > p{
+    color: var(--dark-grayish-blue);
+    margin: 1em 0 1em;
+}
+
+.testimonials > button{
+    background: var(--bright-red);
+    color: var(--Vary-Light-Gray);
+    font-weight: 500;
+    padding: 0.6em 2em;
+    border-radius: 2em;
+}
+
+.testimonials > button:hover{
+    background: hsl(12, 88%, 66%);
+}
+
+/* ______SIMPLIFY______ */
+.simplify{
+    background: url(images/bg-simplify-section-desktop.svg) no-repeat bottom right -12em, var(--bright-red);
+    display: flex;
+    padding: 4em 10%;
+}
+
+.simplify > h2{
+    color: var(--Vary-Light-Gray);
+    font-size: 34px;
+    width: 12em;
+}
+
+.simplify > button{
+    background: var(--Vary-Light-Gray);
+    color: var(--bright-red);
+    font-weight: 500;
+    padding: 0.6em 2em;
+    border-radius: 2em;
+    margin: auto 0 auto auto;
+}
+
+.simplify > button:hover{
+    color: hsl(30, 88%, 59%);
+}
+
+
+/* __________FOOTER__________ */
+footer{
+    background: var(--very-dark-blue);
+    display: grid;
+    grid-template-columns: 25% 20% 20% 35%;
+    padding: 4em 10%;
+}
+
+footer .logo-letters{
+    fill: var(--white);
+}
+
+.media{
+    grid-row: 2;
+    margin-top: auto;
+}
+
+.media svg:hover path{
+    fill: hsl(12, 88%, 59%);
+}
+
+footer ul{
+    display: flex;
+    flex-direction: column;
+    grid-row: span 2;
+    gap: 0.6em;
+}
+
+footer a{
+    color: var(--Vary-Light-Gray);
+}
+
+footer a:hover{
+    color: hsl(12, 88%, 59%);
+}
+
+.inbox-updates{
+    display: flex;
+    gap: 0.2em;
+}
+
+.inbox-updates input{
+    color: var(--very-dark-blue);
+    font-weight: 500;
+    width: 100%;
+    height: 3em;
+    padding: 0 1em;
+    border-radius: 2em;
+}
+
+.inbox-updates button{
+    background: var(--bright-red);
+    color: var(--Vary-Light-Gray);
+    height: 3em;
+    padding: 0 1.6em;
+    border-radius: 2em;
+}
+
+.rights{
+    color: var(--Very-Pale-Red);
+    margin: auto 0 0;
+}
+
+
+
+/* ______________media______________ */
+@media(max-width: 1180px){
+    /* __________NAVIGATION__________ */
+    nav > ul{
+        background: var(--white);
+        display: none;
+        flex-direction: column;
+        text-align: center;
+        box-shadow: 0 0 18px hsl(0, 0%, 0%);
+        width: 24em;
+        padding: 3em 0;
+        border-radius: 1em;
+
+        position: absolute;
+        top: 4em;
+        left: 50%;
+        transform: translate(-50%);
+        z-index: 2;
+    }
+    nav button{
+        display: none;
+    }
+    /* mobile menu */
+    .menu-box{
+        display: inline-block;
+    }
+    /* scrolling */
+    .scrolling-active a{
+        color: var(--dark-blue);
+    }
+    /* __________MAIN__________ */
+    /* ______INTRODUCTION______ */
+    .intro{
+        text-align: center;
+        padding: 38em 10% 4em;
+        
+    }
+    .intro::before{
+        background-size: 35em;
+        background-position: top center;
+        width: 100%;
+        height: 55%;
+        top: 6em;
+    }
+    .intro > h1{
+        font-size: 42px;
+        width: 12em;
+        margin: 0 auto;
+    }
+    .intro > p{
+        width: 36em;
+        margin: 0.6em auto;
+    }
+    /* ______What's different______ */
+    .wts-different{
+        flex-direction: column;
+        gap: 3em;
+        align-items: center;
+        padding-top: 8em;
+    }
+    .wts-different > header{
+        text-align: center;
+        width: 100%;
+    }
+    .wts-different h2{
+        font-size: 38px;
+    }
+    .wts-different p{
+        font-size: 17px;
+        width: 100%;
+    }
+    /* ______TESTIMONIALS______ */
+    .testimony{
+        width: 100%;
+    }
+    .testimony > img{
+        width: 4.2em;
+    }
+    /* __________FOOTER__________ */
+    footer{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2em;
+        padding: 4em 20%;
+    }
+    .inbox-updates{
+        grid-column: span 2;
+        grid-row: 1;
+        gap: 1.2em;
+    }
+    .inbox-updates label{
+        width: 65%;
+        min-width: 12em;
+    }
+    .inbox-updates button{
+        width: 6em;
+    }
+    footer ul{
+        grid-row: span 1;
+        gap: 0.3em;
+    }
+    .ul2{
+        margin: 0 1em 0 auto;
+    }
+    .media{
+        grid-row: 3;
+        margin-left: auto;
+    }
+    .logo{
+        grid-row: 3;
+    }
+    .rights{
+        grid-column: span 2;
+        text-align: center;
+    }
+}
+
+@media(max-width: 840px){
+    /* __________MAIN__________ */
+    main{
+        background: url(images/bg-simplify-section-mobile.svg) top center;
+    }
+    /* ______INTRODUCTION______ */
+    .intro{
+        padding-top: 28em;
+    }
+    .intro::before{
+        background-size: 24em;
+    }
+    .intro > h1{
+        font-size: 38px;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .intro > p{
+        width: 100%;
+    }
+    /* ______What's different______ */
+    .wts-different h2{
+        font-size: 34px;
+    }
+    .points{
+        position: relative;
+    }
+    .points > div{
+        gap: 1.6em 0.6em;
+    }
+    .points span{
+        z-index: 1;
+    }
+    .points h3{
+        background: var(--Very-Pale-Red);
+        font-size: 17px;
+        height: 2.2em;
+        width: 20em;
+        padding: 0.25em 0 0 2em;
+        border-radius: 2em;
+        position: absolute;
+        left: 2.2em;
+    }
+    .points p{
+        padding-top: 2.4em;
+    }
+    /* ______SIMPLIFY______ */
+    .simplify{
+        flex-direction: column;
+        text-align: center;
+        gap: 0.6em;
+    }
+    .simplify > h2{
+        width: 100%;
+        margin: 0 auto;
+    }
+    .simplify > button{
+        margin: 0 auto;
+    }
+    /* __________FOOTER__________ */
+    footer{
+        grid-template-columns: repeat(2, 9em);
+        justify-content: center;
+    }
+    .inbox-updates{
+        gap: 0.6em;
+    }
+    .media{
+        grid-column: span 2;
+        margin: 0 auto;
+    }
+    .logo{
+        grid-column: span 2;
+        grid-row: 4;
+        margin: 0 auto;
+    }
+}
